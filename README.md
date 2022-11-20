@@ -1,7 +1,7 @@
 # Install project 
 **mvn clean install**
 
-### ## Ejecutar con el runner general "ManagementTest"
+### Ejecutar con el runner general "ManagementTest"
 **mvn clean test**
 
 ###  Lanzar por etiquetas
@@ -11,4 +11,4 @@
 
 ###  Lanzar por etiquetas y entornos
 
-** mvn test "-Dkarate.options=--tags @camilo" -DKarate.env="dev"**
+** mvn test "-Dkarate.options=--tags @debug" -DKarate.env="dev"**
