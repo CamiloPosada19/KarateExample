@@ -1,0 +1,29 @@
+pipeline{
+    agent any
+    stages{
+        	stage ('KarateDSL - Checkout') {
+                steps{
+checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/CamiloPosada19/KarateExample']]]) 
+                }
+        	    
+        	}
+        	
+        	stage("Execute test"){
+        	    steps{
+        	            bat """ 
+                        cd myproject    
+                        mvn clean test
+
+                        """   
+        	    }
+        	}
+        
+    }
+       post { 
+        failure { 
+            echo 'I send the email now'
+        }
+    }
+    	
+                }
+
